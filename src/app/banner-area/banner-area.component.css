@@ -1,0 +1,15 @@
+.bnrArea{background:#f6f7f9; padding: 50px 20px; display: flex; justify-content: space-around;
+    align-items: center;}
+.bnrImg{width:100%; text-align: center;}
+.bnrContent{ background: #fff; padding: 60px 50px; border-radius: 10px; width: 530px;}
+.bnrContent h2{font-size: 36px; margin-bottom: 20px;}
+.bnrContent h6{font-size: 20px; margin-bottom: 25px;}
+.bnrImg { max-width: 600px;}
+.bnrImg img { width: 90%;}
+.bnrContent form input { display: block; width: 100%; height: 40px; margin-bottom: 10px; border-radius: 5px;
+    border: 1px solid #a3a3a3; padding-left: 10px;}
+
+@media screen and (max-width:767px){
+    .bnrArea{flex-direction: column;}
+    .bnrContent{width: 100%;}
+}

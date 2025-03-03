@@ -1,0 +1,18 @@
+<section class="bnrArea">
+    <div class="bnrImg">
+        <img src="signin22.png" alt="signin2">
+    </div>
+    <div class="bnrContent">
+        <h2>Welcome to RPost</h2>
+        <h6>Digital Document Management System</h6>
+        
+        <p class="mb-3">Handcrafted in California, Served to the World. Since 2000. The Global Standard in Secure & Certified E-Communications.</p>
+        <form>
+            <input type="text" placeholder="User Name" [(ngModel)]="user" name="user">
+            <input type="password" placeholder="Password" [(ngModel)]="pass" name="pass">
+            <!-- <a routerLink="/Dashboard" class="btn-1">Login</a> -->
+             <button class="btn-1" type="button" (click)="login()">Login</button>
+        </form>
+    </div>
+    
+</section>

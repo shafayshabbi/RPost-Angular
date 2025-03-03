@@ -1,0 +1,32 @@
+<section class="dashboard">
+    <div class="container">
+        
+        <h1 class="mb-5">Welcome to Dashboard</h1>
+        <div class="leftPanel">
+            <div class="upload-container" (click)="fileInput.click()">
+                <p>Drag & Drop Image or <b>Click to Upload</b></p>
+                <div class="drop-area" (drop)="onDrop($event)" (dragover)="onDragOver($event)"></div>
+                <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden>
+              </div>
+              
+              <!-- Show Preview & Signature Section Only If Image Exists -->
+              <div class="signature-container" *ngIf="imageUrl">
+                <img [src]="imageUrl" alt="Image Preview">
+                <!-- Image Preview -->
+                <!-- <img *ngIf="imageUrl" [src]="imageUrl" alt="Uploaded Image" #previewImage> -->
+
+                <canvas #signatureCanvas></canvas>
+              </div>
+              
+              <div class="buttons" *ngIf="imageUrl">
+                <button class="btn-2" (click)="clearSignature()">Clear Signature</button>
+                <button class="btn-2" (click)="saveImage()">Save Signed Image</button>
+              </div>
+              
+         
+        </div>
+    </div>
+</section>    
+
+
+

@@ -1,0 +1,24 @@
+.contactPge{background: #f6f7f9;
+    padding: 100px 20px;}
+.cnct-block {display: flex ; justify-content: space-around; align-items: center;}  
+.cnctImg img { width: 80%;}  
+.cnctDesc input {
+    display: inline-block;
+    width: 80%;
+    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+.cnctDesc .btn-1 {
+    width: 80%;
+}
+
+@media screen and (max-width:767px){
+    .cnctImg img{width: 100%;}
+    .cnctDesc input {width: 100%;}
+    .cnctDesc .btn-1 {width: 100%;}
+    
+}

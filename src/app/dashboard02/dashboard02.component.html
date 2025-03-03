@@ -1,0 +1,24 @@
+<div class="upload-container" id="uploadContainer" (click)="drgopen()">
+    <p>Drag & Drop Image or <b>Click to Upload</b></p>
+    <div class="drop-area" id="dropArea">Drop your file here</div>
+    <input type="file" id="fileInput" accept="image/*">
+
+    <div class="progress-bar" id="progressBar">
+        <div class="progress" id="progress"></div>
+    </div>
+</div>
+
+<p>khgjgj kjhgjkhgkjh </p>
+
+<!-- Image Preview & Signature Canvas -->
+<div class="preview-container" id="previewContainer">
+    <img id="previewImg" src="" alt="Image Preview">
+    <canvas id="signatureCanvas"></canvas>
+</div>
+
+<div class="signature-container" id="signatureContainer">
+    <div class="buttons">
+        <button id="clearSignature">Clear Signature</button>
+        <button id="saveImage">Save Signed Image</button>
+    </div>
+</div>

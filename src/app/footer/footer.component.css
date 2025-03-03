@@ -1,0 +1,8 @@
+footer{padding:12px 10px; background:#9b9b9b;}
+footer p, footer a{color:#000; text-decoration:none;}
+footer p {  display: flex; justify-content: space-around;}
+
+@media screen and (max-width:767px){
+    footer p{flex-direction: column;text-align: center;}
+    footer .text-start, footer .text-end {text-align: center;}    
+}
