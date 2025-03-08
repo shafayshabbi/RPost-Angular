@@ -8,7 +8,6 @@ import { ImageUploadComponent } from './image-upload/image-upload.component';
 export const routes: Routes = [
     {path:'Home', component:BannerAreaComponent},
     {path:'Contact', component:ContactComponent},
-    {path:'Dashboard', component:DashboardComponent}
-    // {path:'Dashboard02', component:Dashboard02Component},
-    // {path:'Dashboard03', component:ImageUploadComponent}
+    {path:'Dashboard', component:DashboardComponent},
+    {path:'Dashboard02', component:Dashboard02Component}
 ];

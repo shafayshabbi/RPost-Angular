@@ -1,24 +1,27 @@
-<div class="upload-container" id="uploadContainer" (click)="drgopen()">
-    <p>Drag & Drop Image or <b>Click to Upload</b></p>
-    <div class="drop-area" id="dropArea">Drop your file here</div>
-    <input type="file" id="fileInput" accept="image/*">
-
-    <div class="progress-bar" id="progressBar">
-        <div class="progress" id="progress"></div>
+<section class="dashboard">
+<div class="container dbdPge">
+    <div class="left-panel">
+        <h2 class="mb-5">Draggable Elements</h2>
+      <img id="img1" src="sign-one.png" alt="sign-one" class="draggable" draggable="true" (dragstart)="onDragStart($event, 1)" />
+      <img id="img2" src="stamp1.png" alt="stamp1" class="draggable" draggable="true" (dragstart)="onDragStart($event, 2)" />
     </div>
-</div>
-
-<p>khgjgj kjhgjkhgkjh </p>
-
-<!-- Image Preview & Signature Canvas -->
-<div class="preview-container" id="previewContainer">
-    <img id="previewImg" src="" alt="Image Preview">
-    <canvas id="signatureCanvas"></canvas>
-</div>
-
-<div class="signature-container" id="signatureContainer">
-    <div class="buttons">
-        <button id="clearSignature">Clear Signature</button>
-        <button id="saveImage">Save Signed Image</button>
+  
+    <div class="right-panel">
+      <div class="upload-section">
+        <input type="file" (change)="onFileChange($event)" />
+        <div *ngIf="uploading" class="progress-bar">
+          <div class="progress" [style.width.%]="progress"></div>
+        </div>
+      </div>
+      <div class="uploaded-image" 
+           *ngIf="uploadedImage" 
+           [style.backgroundImage]="'url(' + uploadedImage + ')'" 
+           (dragover)="onDragOver($event)" 
+           (drop)="onDrop($event)">
+      </div>
     </div>
-</div>
+  </div>
+  <div class="svePdf">
+    <button class="btn-1" (click)="saveToPDF()">Save to PDF</button>
+  </div>
+  </section>

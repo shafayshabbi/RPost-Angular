@@ -39,6 +39,10 @@ header .stroke li a:hover:after {
 
 .mob-menu{display: none;}
 
+header ul li.loggedUser{display: none;}
+header.logged-in ul li.loggedUser{display: inline-block;}
+
+
 @media screen and (max-width:767px){
   .logo {width: 140px;}
     .mob-menu{display: block; text-align: right; z-index: 9;
