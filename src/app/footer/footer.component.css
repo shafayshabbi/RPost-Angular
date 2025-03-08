@@ -1,4 +1,4 @@
-footer{padding:12px 10px; background:#9b9b9b;}
+footer{padding:12px 10px; background:#9b9b9b; position: relative; z-index: 9;}
 footer p, footer a{color:#000; text-decoration:none;}
 footer p {  display: flex; justify-content: space-around;}
 

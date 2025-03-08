@@ -7,8 +7,12 @@
     justify-content: space-between;}
   
   .left-panel {
-    width: 20%; display: flex;
-        flex-direction: column; position: fixed;
+    width: 300px; display: flex;
+        flex-direction: column; position: fixed; background: #fff;
+        top: 0;
+        bottom: 0;
+        height: 100vh;
+        padding: 187px 20px 0 20px;
   }
   
   .right-panel {
@@ -19,11 +23,11 @@
     padding: 20px;
     min-height: 600px;
     text-align: center;
-    margin-left: 20%; display: flex;justify-content: center; align-items: center; flex-direction: column;  }
+    margin-left: 23%; display: flex;justify-content: center; align-items: center; flex-direction: column;  }
   
   .draggable {
     width: 100px;
-    height: 100px;
+    height: auto;
     cursor: move;
   }
   
@@ -60,18 +64,38 @@
     border: 2px dashed #ccc;
   }
   
-.dashboard .btn-1 { width: 20%;}
+.dashboard .btn-1 { width: 180px;}
 .dashboard button { margin-top: 20px;}
 .svePdf { text-align: center; padding: 20px 0 0 0;}
-/* .upload-section input[type="file"] {z-index: 9; position: relative;} */
+
+
+/* Style for the progress bar container */
+.progress-bar {
+  width: 100%;
+  height: 20px; 
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+/* Style for the actual progress element */
+.progress {
+  height: 100%;
+  background-color: #4caf50; 
+  width: 0; 
+  transition: width 0.2s; 
+}
+
 
 
 
 /*mobile styles starts*/
 @media screen and (max-width:767px){
-    .left-panel{width: 100%; position: static; flex-direction: row; justify-content: center; margin-bottom: 40px;}
+    .left-panel{width: 100%; position: static; margin-bottom: 40px; background: none;
+      height: unset;  padding: 0; display: unset;}
     .right-panel{width: 100%; margin-left: 0%;}
-    .left-panel h2 {display: none;}
+    .left-panel h2 {margin: 0;}
     .dbdPge{display: flex;justify-content: space-between;flex-direction: column;}
     .uploaded-image{background-size: contain; background-repeat: no-repeat; background-position: top; height: 450px;}
     .dashboard .btn-1 { width: 46%;}

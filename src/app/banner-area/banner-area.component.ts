@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, Renderer2, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { HeaderComponent } from '../header/header.component';  // Import HeaderComponent
+import { HeaderComponent } from '../header/header.component';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -12,22 +12,21 @@ import { FormsModule } from '@angular/forms';
 export class BannerAreaComponent implements OnInit {
   user: string = '';
   pass: string = '';
-  isLoggedIn: boolean = false; // Track login state
+  isLoggedIn: boolean = false; 
 
   @ViewChild(HeaderComponent) headerComponent: HeaderComponent | undefined;
 
   constructor(
     private route: Router,
     private renderer: Renderer2,
-    private cdr: ChangeDetectorRef // Inject ChangeDetectorRef
+    private cdr: ChangeDetectorRef 
   ) {}
 
   ngOnInit(): void {
-    // Check login status on component initialization
     const loggedInStatus = localStorage.getItem('isLoggedIn');
     if (loggedInStatus === 'true') {
       this.isLoggedIn = true;
-      this.addClassToHeader(); // Add class to header if logged in
+      this.addClassToHeader(); 
     }
   }
 
@@ -35,14 +34,15 @@ export class BannerAreaComponent implements OnInit {
     if (this.user === 'shafay' && this.pass === '123') {
       alert("Login successful");
      
-      this.isLoggedIn = true; // Set login state to true
+      this.isLoggedIn = true; 
      
-      localStorage.setItem('isLoggedIn', 'true'); // Persist login state
+      localStorage.setItem('isLoggedIn', 'true'); 
       
-      this.addClassToHeader(); // Add class to header when user logs in
+      this.addClassToHeader(); 
       
-      this.route.navigate(['/Dashboard02']);
-      window.location.reload();
+      this.route.navigate(['/Dashboard']).then(() => {
+        window.location.reload();
+      });
       
       
     } else {
@@ -51,16 +51,16 @@ export class BannerAreaComponent implements OnInit {
   }
 
   logout(): void {
-    this.isLoggedIn = false; // Reset login state
-    localStorage.setItem('isLoggedIn', 'false'); // Remove login state from localStorage
+    this.isLoggedIn = false; 
+    localStorage.setItem('isLoggedIn', 'false'); 
 
-    this.removeClassFromHeader(); // Remove class from header when user logs out
+    this.removeClassFromHeader(); 
 
-    this.route.navigate(['/Home']); // Redirect to the home page
+    this.route.navigate(['/Home']); 
   }
 
   private addClassToHeader(): void {
-    // Get the header element and add the 'logged-in' class
+    
     const headerElement = document.querySelector('header');
     if (headerElement) {
       this.renderer.addClass(headerElement, 'logged-in');
@@ -68,12 +68,11 @@ export class BannerAreaComponent implements OnInit {
   }
 
   private removeClassFromHeader(): void {
-    // Get the header element and remove the 'logged-in' class
+    
     const headerElement = document.querySelector('header');
     if (headerElement) {
       this.renderer.removeClass(headerElement, 'logged-in');
     }
-    // Manually trigger change detection to ensure Angular updates the DOM
     this.cdr.detectChanges(); 
   }
 }

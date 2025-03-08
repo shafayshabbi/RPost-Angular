@@ -1,19 +1,20 @@
 <header>
     <div class="container">
       <a href="/Home" class="logo"><img src="RPost_Logo.svg" alt="Logo"></a>
-      <span class="mob-menu"><img src="menu.png" alt="menu"></span>
-      <ul class="stroke">
+      <!-- Mobile Menu Icon -->
+      <span class="mob-menu" (click)="toggleMenu()">
+        <img src="menu.png" alt="menu">
+      </span>
+      <!-- Menu List -->
+      <ul [ngClass]="{'open': isMenuOpen}" class="stroke">
         <li><a routerLink="/Home">Home</a></li>
         <li><a routerLink="/Contact">Contact</a></li>
-        
-       
-        <li *ngIf="isLoggedIn"><a routerLink="/Dashboard02">Dashboard2</a></li>
-  
-       
+        <li *ngIf="isLoggedIn"><a routerLink="/Dashboard">Dashboard</a></li>
         <li *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>
       </ul>
     </div>
   </header>
+  
 
 
 

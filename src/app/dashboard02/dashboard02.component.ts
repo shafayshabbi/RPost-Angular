@@ -21,17 +21,17 @@ export class Dashboard02Component implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    // Check if the page has been "reloaded" before using localStorage
+    
     if (!localStorage.getItem('dashboardReloaded')) {
-      // If it's the first time, set flag and reload the page by navigating to the same route
+     
       localStorage.setItem('dashboardReloaded', 'true');
       
-      this.router.navigateByUrl('/dashboard02', { skipLocationChange: true }).then(() => {
-        // After navigation, trigger the necessary initialization or logic
+      this.router.navigateByUrl('/dashboard', { skipLocationChange: true }).then(() => {
+        
         console.log('Page reloaded and initialized');
       });
     } else {
-      // This is not the first load, so initialize your logic here
+      
       console.log('Page loaded after initial reload');
     }
   }
@@ -56,13 +56,43 @@ export class Dashboard02Component implements OnInit {
       imgElement.style.left = `${event.offsetX}px`;
       imgElement.style.top = `${event.offsetY}px`;
 
-      // Append the dragged image to the uploaded image container
       const uploadedImageContainer = document.querySelector('.uploaded-image');
       if (uploadedImageContainer) {
         uploadedImageContainer.appendChild(imgElement);
       }
     }
   }
+
+
+  // Handle touch events for mobile devices
+onTouchStart(event: TouchEvent, imgNumber: number): void {
+  
+  this.draggedImage = imgNumber === 1 ? 'sign-one.png' : (imgNumber === 2 ? 'stamp1.png' : '');
+  event.preventDefault();
+}
+
+onTouchMove(event: TouchEvent): void {
+  event.preventDefault();
+}
+
+onTouchEnd(event: TouchEvent): void {
+  if (this.uploadedImage && this.draggedImage) {
+    const touch = event.changedTouches[0];
+    const uploadedImageContainer = document.querySelector('.uploaded-image') as HTMLElement;
+
+    // Get the container's position
+    const rect = uploadedImageContainer.getBoundingClientRect();
+    const droppedImage = this.draggedImage;
+    const imgElement = document.createElement('img');
+    imgElement.src = droppedImage;
+    imgElement.style.position = 'absolute';
+    imgElement.style.left = `${touch.pageX - rect.left}px`;
+    imgElement.style.top = `${touch.pageY - rect.top}px`;
+
+    // Append the dragged image to the uploaded image container
+    uploadedImageContainer.appendChild(imgElement);
+  }
+}
 
   // Image upload logic with progress bar
   onFileChange(event: any): void {
@@ -86,6 +116,7 @@ export class Dashboard02Component implements OnInit {
     }
   }
 
+ 
   // Save the uploaded image to PDF
   saveToPDF(): void {
     const content = document.querySelector('.right-panel');
@@ -93,8 +124,8 @@ export class Dashboard02Component implements OnInit {
       html2canvas(content).then((canvas: HTMLCanvasElement) => {
         const imgData = canvas.toDataURL('image/jpeg');
         const pdf = new jsPDF();
-        const pdfWidth = 210; // A4 width in mm
-        const pdfHeight = 297; // A4 height in mm
+        const pdfWidth = 210; 
+        const pdfHeight = 297;
         pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
         pdf.save('image.pdf');
       });

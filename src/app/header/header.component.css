@@ -1,5 +1,5 @@
 /*header styles*/
-header{ padding:5px 0;}
+header{ padding:5px 0; position: relative; z-index: 9;}
 .container{max-width:1400px; margin: 0 auto; display: grid; grid-template-columns: auto auto;}
 .logo img{max-width: 180px;}
 header ul{text-align: right; line-height: 80px;}
@@ -62,4 +62,7 @@ header.logged-in ul li.loggedUser{display: inline-block;}
         line-height: 50px;
         text-align: left;
     } 
+    header ul.open {
+      display: block;
+    }
 }
